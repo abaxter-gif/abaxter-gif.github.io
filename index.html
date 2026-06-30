@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Built In Public Coin</title>
+  <title>Nexacoin | NXCN</title>
 
   <style>
     :root {
@@ -27,8 +27,9 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(124, 58, 237, 0.35), transparent 35%),
-        radial-gradient(circle at top right, rgba(34, 211, 238, 0.2), transparent 30%),
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.40), transparent 35%),
+        radial-gradient(circle at top right, rgba(34, 211, 238, 0.24), transparent 30%),
+        radial-gradient(circle at bottom, rgba(236, 72, 153, 0.12), transparent 35%),
         linear-gradient(180deg, #050816 0%, #080b18 45%, #020617 100%);
       min-height: 100vh;
     }
@@ -58,15 +59,13 @@
       letter-spacing: 0.5px;
     }
 
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
-      font-weight: 900;
+    .logo-image {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 24px rgba(124, 58, 237, 0.6);
+      border: 1px solid rgba(255,255,255,0.18);
     }
 
     .nav {
@@ -91,7 +90,7 @@
     .hero {
       padding: 64px 0 42px;
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 34px;
       align-items: center;
     }
@@ -118,14 +117,14 @@
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 82px);
+      font-size: clamp(46px, 8vw, 88px);
       line-height: 0.95;
       margin: 0 0 20px;
       letter-spacing: -3px;
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #fff, #a78bfa, #22d3ee);
+      background: linear-gradient(90deg, #fff, #c084fc, #22d3ee, #fb7185);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -192,30 +191,45 @@
       padding: 24px;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
     }
 
-    .coin-orb {
-      width: 180px;
-      height: 180px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle, rgba(34,211,238,0.16), transparent 45%);
+      animation: floatGlow 9s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translate(-4%, -3%) rotate(0deg); }
+      to { transform: translate(4%, 3%) rotate(20deg); }
+    }
+
+    .coin-image {
+      width: 230px;
+      height: 230px;
       margin: 12px auto 24px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 25%, #ffffff, transparent 12%),
-        linear-gradient(135deg, #7c3aed, #22d3ee);
+      border-radius: 28px;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 1;
       box-shadow:
-        0 0 40px rgba(34, 211, 238, 0.45),
-        0 0 90px rgba(124, 58, 237, 0.38);
-      display: grid;
-      place-items: center;
-      font-size: 52px;
-      font-weight: 900;
-      color: white;
+        0 0 30px rgba(124, 58, 237, 0.45),
+        0 0 70px rgba(34, 211, 238, 0.28);
+      border: 1px solid rgba(255,255,255,0.16);
     }
 
     .stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .stat {
@@ -341,7 +355,7 @@
 
     @media (max-width: 820px) {
       header {
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
       }
 
@@ -351,7 +365,7 @@
 
       .hero {
         grid-template-columns: 1fr;
-        padding-top: 36px;
+        padding-top: 34px;
       }
 
       h1 {
@@ -374,10 +388,9 @@
         order: -1;
       }
 
-      .coin-orb {
-        width: 145px;
-        height: 145px;
-        font-size: 44px;
+      .coin-image {
+        width: 185px;
+        height: 185px;
       }
     }
   </style>
@@ -386,8 +399,8 @@
 <body>
   <header class="container">
     <div class="brand">
-      <div class="logo">B</div>
-      <div>Built In Public Coin</div>
+      <img src="Screenshot_20260630_152741_pumpfun.jpg" alt="Nexacoin Logo" class="logo-image">
+      <div>Nexacoin</div>
     </div>
 
     <nav class="nav">
@@ -403,15 +416,15 @@
       <div>
         <div class="badge">
           <span class="dot"></span>
-          Solana · Pump.fun · Built in public
+          NXCN · Solana · Pump.fun · Built in public
         </div>
 
         <h1>
-          A coin built with <span class="gradient-text">transparency</span>, not fake hype.
+          Nexacoin is built with <span class="gradient-text">transparency</span>, not fake hype.
         </h1>
 
         <p class="subtitle">
-          Built In Public Coin is a Solana community coin launched on Pump.fun around one simple idea:
+          Nexacoin is a Solana community coin launched on Pump.fun around one simple idea:
           can a normal creator build a meme coin publicly without rugging, hiding, or pretending it is risk-free?
         </p>
 
@@ -431,9 +444,13 @@
       </div>
 
       <aside class="hero-card">
-        <div class="coin-orb">B</div>
+        <img src="Screenshot_20260630_152741_pumpfun.jpg" alt="Nexacoin Art" class="coin-image">
 
         <div class="stat-grid">
+          <div class="stat">
+            <span>Ticker</span>
+            <strong>NXCN</strong>
+          </div>
           <div class="stat">
             <span>Chain</span>
             <strong>Solana</strong>
@@ -441,10 +458,6 @@
           <div class="stat">
             <span>Launch</span>
             <strong>Pump.fun</strong>
-          </div>
-          <div class="stat">
-            <span>Style</span>
-            <strong>Community</strong>
           </div>
           <div class="stat">
             <span>Mode</span>
@@ -457,7 +470,7 @@
     <section id="mission" class="container">
       <h2 class="section-title">The Mission</h2>
       <p class="section-subtitle">
-        Most meme coins feel anonymous, rushed, and disposable. This one starts with public accountability,
+        Most meme coins feel anonymous, rushed, and disposable. Nexacoin starts with public accountability,
         simple messaging, and a creator willing to document the process openly.
       </p>
 
@@ -469,7 +482,7 @@
 
         <div class="card">
           <h3>Community First</h3>
-          <p>The coin starts as a meme and community experiment. What it becomes depends on attention, trust, and contribution.</p>
+          <p>Nexacoin starts as a meme and community experiment. What it becomes depends on attention, trust, and contribution.</p>
         </div>
 
         <div class="card">
@@ -482,7 +495,7 @@
     <section id="commitment" class="container">
       <h2 class="section-title">Creator Commitment</h2>
       <p class="section-subtitle">
-        Words are cheap in crypto. The goal is to back the message with visible behavior and clear boundaries.
+        Words are cheap in crypto. Nexacoin is built around visible behavior, public updates, and clear boundaries.
       </p>
 
       <div class="commitment-list">
@@ -498,7 +511,7 @@
     <section id="roadmap" class="container">
       <h2 class="section-title">Roadmap</h2>
       <p class="section-subtitle">
-        This starts simple. The larger vision is to grow from a basic Pump.fun coin into a transparent,
+        Nexacoin starts simple. The larger vision is to grow from a basic Pump.fun coin into a transparent,
         creator-led community project.
       </p>
 
@@ -540,7 +553,7 @@
     <section id="risk" class="container">
       <h2 class="section-title">Risk Warning</h2>
       <div class="warning">
-        This coin is highly speculative. Meme coins are volatile and risky. Do not buy more than you can afford to lose.
+        Nexacoin is highly speculative. Meme coins are volatile and risky. Do not buy more than you can afford to lose.
         Nothing on this page is financial advice, investment advice, or a guarantee of future performance.
         Transparency does not remove market risk.
       </div>
@@ -548,7 +561,7 @@
   </main>
 
   <footer class="container">
-    Built in public. No fake hype. No disappearing.
+    Nexacoin · NXCN · Built in public. No fake hype. No disappearing.
   </footer>
 </body>
 </html>
