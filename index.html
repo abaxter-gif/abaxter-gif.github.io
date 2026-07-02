@@ -184,6 +184,28 @@
       margin-bottom: 8px;
     }
 
+    .copy-btn {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: #f8fafc;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    
+    .copy-btn:hover {
+      background: rgba(255,255,255,0.14);
+    }
+    
+    .copy-message {
+      margin-top: 8px;
+      color: #34d399;
+      font-size: 13px;
+      min-height: 18px;
+    }
+    
     .hero-card {
       border: 1px solid var(--card-border);
       background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
@@ -440,7 +462,13 @@
 
         <div class="contract-box">
           <strong>Contract Address</strong>
-          5HtFhztdKb1KDXAXdUZhR7ymYBMg8BCUm3RhTFPypump
+          <span id="contract-address">5HtFhztdKb1KDXAXdUZhR7ymYBMg8BCUm3RhTFPypump</span>
+        
+          <button class="copy-btn" onclick="copyContract()">
+            Copy Contract
+          </button>
+        
+          <div id="copy-message" class="copy-message"></div>
         </div>
       </div>
 
@@ -594,5 +622,22 @@
   <footer class="container">
     Nexacoin · NXCN · Built in public. No fake hype. No disappearing.
   </footer>
+
+  <script>
+    function copyContract() {
+      const contract = document.getElementById("contract-address").innerText;
+      const message = document.getElementById("copy-message");
+  
+      navigator.clipboard.writeText(contract).then(function() {
+        message.innerText = "Copied.";
+        setTimeout(function() {
+          message.innerText = "";
+        }, 1800);
+      }).catch(function() {
+        message.innerText = "Copy failed. Press and hold the contract to copy.";
+      });
+    }
+  </script>
+  
 </body>
 </html>
